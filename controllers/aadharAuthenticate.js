@@ -1,4 +1,4 @@
-const Aadhar = require('../models/aadhar');
+const Aadhar = require('../models/Aadharuser');
 
 
 const authenticate_aadhar = async (req, res) => {
@@ -36,6 +36,4 @@ const authenticate_aadhar = async (req, res) => {
         })
 }
 
-module.exports(
-    authenticate_aadhar
-)
+module.exports=authenticate_aadhar
