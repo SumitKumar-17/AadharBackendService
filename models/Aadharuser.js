@@ -33,8 +33,14 @@ const AadharUserSchema=mongoose.Schema({
         type:String,
         required:true,
         unique:true,
-    }
-    },{
+    },
+    panCard:{
+        type:String,
+        // required:true, //can be made true fr Banking Applications
+        unique:true,
+    },
+    },
+    {
         timestamps:true
     }
 );
