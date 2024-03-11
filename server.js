@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const AadharRoutes = require("./routes/aadharRoutes")
+const ErrorHandler = require("./middleware/ErrorHandler")
 
 
 const app = express();
@@ -29,11 +30,19 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Internal Server Error' });
 });
 
+app.use(ErrorHandler);
+
 app.get("/", (req, res) => {
     res.send(
         "Welcome to the server of Aadhar Backend"
     )
 })
+
+// Global error handler
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ error: 'Enter Correct JSON format' });
+});
 
 //making the database connection
 mongoose.connect(db_uri, { useNewUrlParser: true, useUnifiedTopology: true })

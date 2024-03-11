@@ -1,0 +1,86 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "AadharService",
+    "dateExported": "2024-03-11T13:40:05.270Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "3a5deb87-3cfe-48d1-9327-605d3a8226bd",
+            "colId": "c13986be-6a08-48e4-89e4-74f0351bf0bf",
+            "containerId": "",
+            "name": "CreateAadhar",
+            "url": "http://localhost:5000/aadhar/create",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-11T12:19:57.758Z",
+            "modified": "2024-03-11T13:05:03.034Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"Name\":\"Sumit Kumar\",\n  \"FingerPrintCode\":\"rwertuiuop\",\n  \"Address\":\"hvadvahkvfv\",\n  \"EyeScanCode\":\"qgerryuiop\",\n  \"PhoneNumber\":\"1234567890\",\n  \"VID\":\"qwertyui1p\",\n  \"panCard\":\"1234567090\",\n  \"AadharNumber\":\"1234123412341239\"\n}",
+                "form": []
+            },
+            "reqType": "post",
+            "tests": []
+        },
+        {
+            "_id": "e1346fff-c2ea-47d4-9f4a-c387aa5a78a2",
+            "colId": "c13986be-6a08-48e4-89e4-74f0351bf0bf",
+            "containerId": "",
+            "name": "Authenticate",
+            "url": "http://localhost:5000/aadhar/authenticate",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-03-11T13:06:37.937Z",
+            "modified": "2024-03-11T13:38:03.005Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"FingerPrintCode\":\"rwertuiuop\"\n  \"EyeScanCode\":\"qgerryuiop\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "6ec8e544-5933-4d62-8c22-3ca1f521190b",
+            "colId": "c13986be-6a08-48e4-89e4-74f0351bf0bf",
+            "containerId": "",
+            "name": "Details",
+            "url": "http://localhost:5000/aadhar/authenticate",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-03-11T13:10:00.314Z",
+            "modified": "2024-03-11T13:21:46.834Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"FingerPrintCode\":\"rwertuiuop\",\n  \"EyeScanCode\":\"qgerryuiop\",\n  \"AadharNumber\":\"1234123412341239\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "007707cd-1792-46fd-8700-24b4d7603ecc",
+            "colId": "c13986be-6a08-48e4-89e4-74f0351bf0bf",
+            "containerId": "",
+            "name": "Update",
+            "url": "http://localhost:5000/aadhar/update",
+            "method": "POST",
+            "sortNum": 40000,
+            "created": "2024-03-11T13:11:19.903Z",
+            "modified": "2024-03-11T13:38:42.865Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"Name\":\"Aviral\",\n  \"FingerPrintCode\":\"rwertuiuop\"\n  \"Address\":\"hvadvgcfuhjvhjahkvfv\",\n  \"EyeScanCode\":\"qgerryuiop\",\n  \"PhoneNumber\":\"1277567890\",\n  \"VID\":\"qweuuutyui\",\n  \"panCard\":\"1234677090\",\n  \"AadharNumber\":\"1234123412341239\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}
