@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "AadharService",
-    "dateExported": "2024-03-11T13:40:05.270Z",
+    "dateExported": "2024-03-11T14:42:28.399Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -49,11 +49,11 @@
             "colId": "c13986be-6a08-48e4-89e4-74f0351bf0bf",
             "containerId": "",
             "name": "Details",
-            "url": "http://localhost:5000/aadhar/authenticate",
+            "url": "http://localhost:5000/aadhar/aadhardetails",
             "method": "POST",
             "sortNum": 30000,
             "created": "2024-03-11T13:10:00.314Z",
-            "modified": "2024-03-11T13:21:46.834Z",
+            "modified": "2024-03-11T14:41:51.276Z",
             "headers": [],
             "params": [],
             "body": {
@@ -61,6 +61,7 @@
                 "raw": "{\n  \"FingerPrintCode\":\"rwertuiuop\",\n  \"EyeScanCode\":\"qgerryuiop\",\n  \"AadharNumber\":\"1234123412341239\"\n}",
                 "form": []
             },
+            "reqType": "post",
             "tests": []
         },
         {
@@ -72,14 +73,15 @@
             "method": "POST",
             "sortNum": 40000,
             "created": "2024-03-11T13:11:19.903Z",
-            "modified": "2024-03-11T13:38:42.865Z",
+            "modified": "2024-03-11T14:38:02.669Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"Name\":\"Aviral\",\n  \"FingerPrintCode\":\"rwertuiuop\"\n  \"Address\":\"hvadvgcfuhjvhjahkvfv\",\n  \"EyeScanCode\":\"qgerryuiop\",\n  \"PhoneNumber\":\"1277567890\",\n  \"VID\":\"qweuuutyui\",\n  \"panCard\":\"1234677090\",\n  \"AadharNumber\":\"1234123412341239\"\n}",
+                "raw": "{\n  \"Name\":\"Sumit User2\",\n  \"FingerPrintCode\":\"rwertuiuop\",\n  \"Address\":\"hvadvgcfuhjvhjahkvfv\",\n  \"EyeScanCode\":\"qgerryuiop\",\n  \"PhoneNumber\":\"1277567890\",\n  \"VID\":\"qweuuutyui\",\n  \"panCard\":\"1234677090\",\n  \"AadharNumber\":\"1234123412341239\"\n}",
                 "form": []
             },
+            "reqType": "post",
             "tests": []
         }
     ]
