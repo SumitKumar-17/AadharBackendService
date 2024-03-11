@@ -23,9 +23,9 @@ const create_aadhar=async(req,res)=>{
             const newuser=new Aadhar({
                 AadharNumber:req.body.AadharNumber,
                 Name:req.body.Name,
-                FingerPrintCode:req.body.FingerPrintCode,
+                FingerPrintCode:Buffer.from(req.body.FingerPrintCode).toString('base64'),
                 Address:req.body.Address,
-                EyeScanCode:req.body.EyeScanCode,
+                EyeScanCode:Buffer.from(req.body.EyeScanCode).toString('base64'),
                 PhoneNumber:req.body.PhoneNumber,
                 VID:req.body.VID,
                 panCard:req.body.panCard
@@ -50,6 +50,34 @@ const create_aadhar=async(req,res)=>{
 }
 
 const get_aadhar_details=async(req,res)=>{
+    Aadhar.find({AadharNumber:req.body.AadharNumber})
+    .then((results)=>{
+        if(results && results.length){
+             results.map(result=>{
+                const resultAadhar={
+                    AadharNumber:result.AadharNumber,
+                    Name:result.Name,
+                    Address:result.Address,
+                    PhoneNumber:result.PhoneNumber,
+                    VID:result.VID,
+                    panCard:result.panCard,
+                    FingerPrintCode:Buffer.from(result.FingerPrintCode,'base64').toString('ascii'),
+                    EyeScanCode:Buffer.from(result.EyeScanCode,'base64').toString('ascii'),
+                 }
+                 res.send(resultAadhar)
+             })
+
+        }
+        else{
+            res.status(400).json({
+                message:"Aadhar User not Found"
+            })
+        }
+    }).catch((err)=>{
+        res.status(400).json({
+            message:err
+        })
+    })
 
 }
 
