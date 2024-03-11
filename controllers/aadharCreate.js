@@ -53,4 +53,4 @@ const create_aadhar = async (req, res) => {
 }
 
 
-module.exports=create_aadhar
+module.exports={create_aadhar}

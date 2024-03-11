@@ -47,4 +47,4 @@ const update_aadhar = async (req, res) => {
 
 }
 
-module.exports =update_aadhar
+module.exports ={update_aadhar}

@@ -36,4 +36,4 @@ const authenticate_aadhar = async (req, res) => {
         })
 }
 
-module.exports=authenticate_aadhar
+module.exports={authenticate_aadhar}

@@ -41,4 +41,4 @@ const get_aadhar_details = async (req, res) => {
 
 }
 
-module.exports=get_aadhar_details
+module.exports={get_aadhar_details}
