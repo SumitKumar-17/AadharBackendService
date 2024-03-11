@@ -2,9 +2,9 @@ const Aadhar = require('../models/aadhar');
 
 
 const authenticate_aadhar = async (req, res) => {
-    if(req.body.FingerPrintCode.length < 10) res.status(400).json({message: "FingerPrintCode should be more than 10 characters"})
-    if(req.body.EyeScanCode.length < 10) res.status(400).json({message: "EyeScanCode should be more than 10 characters"})
-    
+    if (req.body.FingerPrintCode.length < 10) res.status(400).json({ message: "FingerPrintCode should be more than 10 characters" })
+    if (req.body.EyeScanCode.length < 10) res.status(400).json({ message: "EyeScanCode should be more than 10 characters" })
+
     let found = false;
     const encodedFingerPrint = Buffer.from(req.body.FingerPrintCode).toString('base64')
     const encodedEyeScan = Buffer.from(req.body.EyeScanCode).toString('base64')

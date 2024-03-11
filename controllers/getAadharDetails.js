@@ -7,10 +7,10 @@ const get_aadhar_details = async (req, res) => {
     if (req.body.AadharNumber != 16) res.status(400).json({ message: "Aadhar Number should be 16 digits" })
     if (req.body.FingerPrintCode != 10) res.status(400).json({ message: "FingerPrintCode should be 10 digits" })
     if (req.body.EyeScanCode != 10) res.status(400).json({ message: "EyeScanCode should be 10 digits" })
-   
-    
 
-    Aadhar.find({ AadharNumber: req.body.AadharNumber, FingerPrintCode: Buffer.from(req.body.FingerPrintCode).toString('base64'), EyeScanCode: Buffer.from(req.body.EyeScanCode).toString('base64')})
+
+
+    Aadhar.find({ AadharNumber: req.body.AadharNumber, FingerPrintCode: Buffer.from(req.body.FingerPrintCode).toString('base64'), EyeScanCode: Buffer.from(req.body.EyeScanCode).toString('base64') })
         .then((results) => {
             if (results && results.length) {
                 results.map(result => {
