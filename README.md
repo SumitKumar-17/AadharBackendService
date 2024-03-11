@@ -1,5 +1,27 @@
 #AadharBackend
 
+Clone the project :
+```python
+https://github.com/SumitKumar-17/AadharBackendService.git
+```
+Navigate into the Project and install the dependencies.
+```python
+cd AadharBackendService
+npm install
+```
+
+Finally start the Project
+```python
+npm start
+```
+
+Set the environment variables is .env file 
+Set the Mongo DB Connection String and the Port Number.
+```python
+MONGO_URI="your connection string"
+PORT=8000
+```
+
 Request and Response Format for all the APIs
 
 Request:
