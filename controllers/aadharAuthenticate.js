@@ -24,7 +24,7 @@ const authenticate_aadhar = async (req, res) => {
                 }
 
                 if (found === true) {
-                    res.send(200).json({
+                    res.status(200).json({
                         message: "Aadhar User Authenticated",
                         result
                     })
