@@ -3,6 +3,7 @@ const express=require('express');
 const mongoose=require('mongoose');
 const cors=require('cors');
 const bodyParser=require('body-parser');
+const AadharRoutes=require("./routes/aadharRoutes")
 
 
 const app=express();
@@ -24,6 +25,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 
+app.use('/aadhar',AadharRoutes);
 
 app.get("/",(req,res)=>{
     res.send(
