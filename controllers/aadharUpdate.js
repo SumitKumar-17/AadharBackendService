@@ -22,43 +22,53 @@ const update_aadhar = async (req, res) => {
         if (req.body.EyeScanCode.length !== 10) return res.status(400).json({ message: "EyeScanCode should be 10 digits" })
         if (req.body.VID.length !== 10) return res.status(400).json({ message: "VID should be 10 digits" })
         if (req.body.Name.length < 1) return res.status(400).json({ message: "Name should be more than 1 character" })
-    
-    
+        
         const encodedFingerPrint = Buffer.from(req.body.FingerPrintCode).toString('base64')
         const encodedEyeScan = Buffer.from(req.body.EyeScanCode).toString('base64')
-        Aadhar.find({ AadharNumber: req.body.AadharNumber }, { FingerPrintCode: encodedFingerPrint }, { EyeScanCode: encodedEyeScan })
-            .then((results) => {
-                if (results && results.length) {
-                    results.map((result) => {
-                        result.AadharNumber = req.body.AadharNumber,
-                            result.Name = req.body.Name,
-                            result.FingerPrintCode = encodedFingerPrint,
-                            result.Address = req.body.Address,
-                            result.EyeScanCode = encodedEyeScan,
-                            result.PhoneNumber = req.body.PhoneNumber,
-                            result.VID = req.body.VID,
-                            result.panCard = req.body.panCard
+
+        const existingAadhar = await Aadhar.findOne({ AadharNumber: req.body.AadharNumber });
+        if (!existingAadhar) {
+            return res.status(400).json({ message: "Aadhar Number does not exist. Cannot update a new Aadhar." });
+        }
+
+        const existingFingerprint = await Aadhar.findOne({ FingerPrintCode: encodedFingerPrint});
+        if (!existingFingerprint) {
+            return res.status(400).json({ message: "Fingerprint already exists. Cannot update with the same fingerprint." });
+        }
+
+        const existingEyeScan = await Aadhar.findOne({ EyeScanCode: encodedEyeScan });
+        if (!existingEyeScan) {
+            return res.status(400).json({ message: "EyeScan already exists. Cannot update with the same EyeScan." });
+        }
+        
     
-                        result.save()
-                    })
-                    res.status(200).json({
-                        message: "Aadhar User Updated Successfully",
-                        result
-                    })
-                }
-                else {
-                    res.status(400).json({
-                        message: "Aadhar User not Found"
-                    })
-                }
-            })
-            .catch((err) => {
-                res.status(400).json({
-                    message: err
-                })
-            })
-    
-    }
+        Aadhar.findOneAndUpdate(
+            { AadharNumber: req.body.AadharNumber }, // Find the Aadhar document by AadharNumber
+            {
+                Name: req.body.Name,
+                FingerPrintCode: encodedFingerPrint,
+                Address: req.body.Address,
+                EyeScanCode: encodedEyeScan,
+                PhoneNumber: req.body.PhoneNumber,
+                VID: req.body.VID,
+                panCard: req.body.panCard
+            },
+            { new: true } // Return the updated document
+        )
+        .then((updatedAadhar) => {
+            if (updatedAadhar) {
+                res.status(200).json({
+                    message: "Aadhar User Updated Successfully",
+                    result: updatedAadhar
+                });
+            } else {
+                res.status(400).json({ message: "Aadhar User not Found" });
+            }
+        })
+        .catch((err) => {
+            res.status(500).json({ message: "Internal Server Error" });
+        });
+            }
     catch(err){
         console.log(err)
         res.status(400).json({
